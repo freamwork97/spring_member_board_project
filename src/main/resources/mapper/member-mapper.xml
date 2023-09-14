@@ -7,6 +7,12 @@
         insert into member(memberEmail, memberPassword, memberName, memberMobile, memberProfile)
         values (#{memberEmail}, #{memberPassword}, #{memberName}, #{memberMobile}, #{memberProfile})
     </insert>
+    <select id="login" parameterType="member" resultType="member">
+        select *
+        from member
+        where memberEmail = #{memberEmail}
+          and memberPassword = #{memberPassword}
+    </select>
 </mapper>
 
 

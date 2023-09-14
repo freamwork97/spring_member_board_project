@@ -10,7 +10,12 @@ public class MemberRepository {
     @Autowired
     private SqlSessionTemplate sql;
 
-    public void save(MemberDTO memberDTO) {
-        sql.insert("Member.save",memberDTO);
+    public int save(MemberDTO memberDTO) {
+        return sql.insert("Member.save", memberDTO);
     }
+
+    public MemberDTO login(MemberDTO memberDTO) {
+        return sql.selectOne("Member.login", memberDTO);
+    }
+
 }
