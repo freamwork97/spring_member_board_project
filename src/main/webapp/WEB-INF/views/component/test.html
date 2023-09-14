@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="footer">
+    <h2>hello</h2>
+</div>
+</body>
+<script>
+    const num = 10;
+    console.log(num);
+    // num=20;
+    // console.log(num);
+    let num1 = 20;
+    num1 = 100;
+    var num2 = 100;
+    num2 = 300;
+    //날짜확인
+    const date = new Date();
+    console.log(date);
+    console.log(date.getFullYear());
+    const footer = document.getElementById("footer");
+    const footer1 = document.querySelector("#footer");
+    footer.innerHTML = "<p>&copy; " + date.getFullYear() + "&nbsp; Windra ALl rights reserved. </p>";
+</script>
+</html>
