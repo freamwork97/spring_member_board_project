@@ -15,5 +15,5 @@
     console.log(date.getFullYear());
     const footer = document.getElementById("footer");
     const footer1 = document.querySelector("#footer");
-    footer.innerHTML="<p>&copy; " + date.getFullYear() + "&nbsp; Windra ALl rights reserved. </p>";
+    footer.innerHTML="<p>&copy; " + date.getFullYear() + "&nbsp; Windra ALL rights reserved. </p>";
 </script>

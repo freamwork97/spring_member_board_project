@@ -33,8 +33,7 @@
         }
 
 
-
-        #login-area a{
+        #login-area a {
             display: block;
         }
     </style>
@@ -45,13 +44,13 @@
             <a href="/">index</a>
         </li>
         <li class="menu-item">
-            <a href="/board/save">글작성</a>
+            <a href="/save">회원가입</a>
         </li>
         <li class="menu-item">
-            <a href="/board/list">목록출력</a>
+            <a href="/login">로그인</a>
         </li>
         <li class="menu-item">
-            <a href="/board/sample">데이터 붓기</a>
+            <a href="/list">글목록</a>
         </li>
     </ul>
 </div>

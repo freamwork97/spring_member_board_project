@@ -8,5 +8,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%-- header라는 id가 적용된 div--%>
 <div id="header">
-    <h1>Spring Framwork Board Project</h1>
+    <h1>Member_Board Project</h1>
 </div>
