@@ -31,4 +31,8 @@ public class MemberService {
             return false;
         }
     }
+
+    public MemberDTO findByMemberEmail(String memberEmail) {
+        return memberRepository.findByMemberEmail(memberEmail);
+    }
 }

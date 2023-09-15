@@ -18,4 +18,8 @@ public class MemberRepository {
         return sql.selectOne("Member.login", memberDTO);
     }
 
+    public MemberDTO findByMemberEmail(String memberEmail) {
+        return sql.selectOne("Member.findByEmail", memberEmail);
+    }
+
 }
