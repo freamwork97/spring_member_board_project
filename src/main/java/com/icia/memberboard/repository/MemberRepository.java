@@ -32,5 +32,9 @@ public class MemberRepository {
         return sql.selectOne("Member.detail",id);
     }
 
+    public void delete(int id) {
+        sql.delete("Member.delete", id);
+    }
+
 
 }

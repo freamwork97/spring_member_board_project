@@ -49,7 +49,7 @@ public class MemberController {
             // model.addAttribute("member", memberDTO); // x
             // 모델에 이메일 저장
             model.addAttribute("email", memberDTO.getMemberEmail());
-            return "page/main";
+            return "redirect:/";
         } else {
             return "page/login";
         }
@@ -89,6 +89,12 @@ public class MemberController {
         System.out.println(id);
         model.addAttribute("member", memberDTO);
         return "page/memberdetail";
+    }
+
+    @GetMapping("/delete")
+    public String delete(@RequestParam("id") int id) {
+        memberService.delete(id);
+        return "redirect:/members";
     }
 
 }

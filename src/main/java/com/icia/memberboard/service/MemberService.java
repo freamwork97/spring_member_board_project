@@ -44,6 +44,8 @@ public class MemberService {
     public MemberDTO detail(int id) {
         return memberRepository.detail(id);
     }
-
+    public void delete(int id) {
+        memberRepository.delete(id);
+    }
 
 }
