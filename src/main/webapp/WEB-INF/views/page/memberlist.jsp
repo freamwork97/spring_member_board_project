@@ -37,7 +37,6 @@
 <%--                    <td>${member.memberProfile}</td>--%>
                     <td>
                         <button class="btn btn-info" onclick="detail_fn('${member.id}')">조회</button>
-                            <%--                        <a href="/member?id=${member.id}">조회</a>--%>
                     </td>
                     <td>
                         <button class="btn btn-danger" onclick="delete_fn('${member.id}')">삭제</button>
