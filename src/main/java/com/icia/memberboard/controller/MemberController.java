@@ -83,5 +83,12 @@ public class MemberController {
         return "page/memberlist"; // 브라우저에 출력할 jsp 파일 이름
     }
 
+    @GetMapping("/member")
+    public String detail(@RequestParam("id") int id, Model model) {
+        MemberDTO memberDTO = memberService.detail(id);
+        System.out.println(id);
+        model.addAttribute("member", memberDTO);
+        return "page/memberdetail";
+    }
 
 }

@@ -41,5 +41,9 @@ public class MemberService {
     public List<MemberDTO> list() {
         return memberRepository.list();
     }
+    public MemberDTO detail(int id) {
+        return memberRepository.detail(id);
+    }
+
 
 }

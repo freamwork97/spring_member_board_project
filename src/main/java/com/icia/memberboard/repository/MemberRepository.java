@@ -28,4 +28,9 @@ public class MemberRepository {
         return sql.selectList("Member.list");
     }
 
+    public MemberDTO detail(int id) {
+        return sql.selectOne("Member.detail",id);
+    }
+
+
 }

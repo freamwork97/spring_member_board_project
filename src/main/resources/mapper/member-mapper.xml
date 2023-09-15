@@ -24,6 +24,11 @@
         select *
         from member
     </select>
+
+    <select id="detail" parameterType="int" resultType="member">
+        select * from member where id=#{id}
+    </select>
+
 </mapper>
 
 
