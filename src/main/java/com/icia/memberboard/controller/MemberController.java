@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class MemberController {
@@ -73,4 +74,14 @@ public class MemberController {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
     }
+
+    @GetMapping("/members")
+    public String list(Model model) { // 가져갈게 있을 때 Model사용
+        List<MemberDTO> memberDTOList = memberService.list();
+        System.out.println("memberList = " + memberDTOList);
+        model.addAttribute("memberList", memberDTOList); // 화면에 가져갈 데이터
+        return "page/memberlist"; // 브라우저에 출력할 jsp 파일 이름
+    }
+
+
 }

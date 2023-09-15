@@ -5,6 +5,8 @@ import com.icia.memberboard.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MemberService {
     @Autowired
@@ -35,4 +37,9 @@ public class MemberService {
     public MemberDTO findByMemberEmail(String memberEmail) {
         return memberRepository.findByMemberEmail(memberEmail);
     }
+
+    public List<MemberDTO> list() {
+        return memberRepository.list();
+    }
+
 }

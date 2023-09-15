@@ -15,7 +15,14 @@
     </select>
 
     <select id="findByEmail" parameterType="String" resultType="member">
-        select * from member where memberEmail=#{memberEmail}
+        select *
+        from member
+        where memberEmail = #{memberEmail}
+    </select>
+
+    <select id="list" resultType="member">
+        select *
+        from member
     </select>
 </mapper>
 
