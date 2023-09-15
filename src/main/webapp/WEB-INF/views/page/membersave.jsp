@@ -10,13 +10,14 @@
 <%@include file="../component/header.jsp" %>
 <%@include file="../component/nav.jsp" %>
 <div id="section">
-    <form action="/save" method="post">
+    <form action="/save" method="post" enctype="multipart/form-data">
         <input type="text" name="memberName" placeholder="이름"> <br>
         <input type="text" name="memberEmail" id="member-email" onkeyup="email_dup_check()" placeholder="이메일"><br>
         <p id="email-dup-check-result"></p>
         <input type="text" name="memberPassword" placeholder="비밀번호"> <br>
         <input type="text" name="memberMobile" placeholder="전화번호"> <br>
-        <%--        <input type="text" name="memberProfile" placeholder="프로필"> <br>--%>
+        <%--        프로필<br><input type="file" name="memberFile" memberProFile> <br>--%>
+        <input type="file" name="memberProfile"> <br>
         <input type="submit" value="회원가입">
     </form>
 </div>
@@ -24,6 +25,11 @@
 </body>
 
 <script>
+    const img = document.getElementById("img").value;
+    const saveimg = () => {
+
+    }
+
     const email_dup_check = () => {
         const email = document.getElementById("member-email").value;
         const result = document.getElementById("email-dup-check-result");

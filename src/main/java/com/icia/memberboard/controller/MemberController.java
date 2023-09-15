@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -25,12 +26,21 @@ public class MemberController {
         return "page/membersave";
     }
 
+    //    @PostMapping("/save")
+//    public String save(@ModelAttribute MemberDTO memberDTO) throws IOException {
+//        boolean result = memberService.save(memberDTO);
+//        if (result) {
+//            return "page/login";
+//        } else {
+//            return "page/membersave";
+//        }
+//    }
     @PostMapping("/save")
-    public String save(@ModelAttribute MemberDTO memberDTO) {
-        boolean result = memberService.save(memberDTO);
-        if (result) {
+    public String save(@ModelAttribute MemberDTO memberDTO)  {
+        try {
+            memberService.save(memberDTO);
             return "page/login";
-        } else {
+        } catch (Exception e) {
             return "page/membersave";
         }
     }

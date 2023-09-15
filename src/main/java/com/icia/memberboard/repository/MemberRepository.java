@@ -1,6 +1,7 @@
 package com.icia.memberboard.repository;
 
 import com.icia.memberboard.dto.MemberDTO;
+import com.icia.memberboard.dto.MemberProfileDTO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -12,8 +13,18 @@ public class MemberRepository {
     @Autowired
     private SqlSessionTemplate sql;
 
-    public int save(MemberDTO memberDTO) {
-        return sql.insert("Member.save", memberDTO);
+    //    public int save(MemberDTO memberDTO) {
+//        return sql.insert("Member.save", memberDTO);
+//    }
+    public MemberDTO save(MemberDTO memberDTO) {
+        System.out.println("insert 전 memberDTO = " + memberDTO);
+        sql.insert("Member.save", memberDTO);
+        System.out.println("insert 후 memberDTO = " + memberDTO);
+        return memberDTO;
+    }
+
+    public void saveFile(MemberProfileDTO memberProfileDTO) {
+        sql.insert("Member.saveFile", memberProfileDTO);
     }
 
     public MemberDTO login(MemberDTO memberDTO) {
@@ -29,7 +40,7 @@ public class MemberRepository {
     }
 
     public MemberDTO detail(int id) {
-        return sql.selectOne("Member.detail",id);
+        return sql.selectOne("Member.detail", id);
     }
 
     public void delete(int id) {

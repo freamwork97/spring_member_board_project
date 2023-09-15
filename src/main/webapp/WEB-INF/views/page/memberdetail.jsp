@@ -18,10 +18,10 @@
 <div class="container">
     <div id="member-list">
         <table class="table table-dark table-striped">
-            <tr>
-                <th>id</th>
-                <td>${member.id}</td>
-            <tr>
+<%--            <tr>--%>
+<%--                <th>id</th>--%>
+<%--                <td>${member.id}</td>--%>
+<%--            <tr>--%>
                 <th>email</th>
                 <td>${member.memberEmail}</td>
             </tr>
