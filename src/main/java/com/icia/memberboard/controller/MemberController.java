@@ -97,4 +97,20 @@ public class MemberController {
         return "redirect:/members";
     }
 
+    @GetMapping("/update")
+    public String update(HttpSession session, Model model) {
+        // 세션에 저장된 이메일 꺼내기
+        String memberEmail = (String) session.getAttribute("loginEmail");
+        MemberDTO memberDTO = memberService.findByMemberEmail(memberEmail);
+        model.addAttribute("member", memberDTO);
+        return "page/memberupdate";
+    }
+
+    @PostMapping("/update")
+    public String update(@ModelAttribute MemberDTO memberDTO) {
+        memberService.update(memberDTO);
+//        System.out.println("studentDTO = " + studentDTO);
+        return "redirect:/";
+    }
+
 }

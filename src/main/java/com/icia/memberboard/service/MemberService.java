@@ -48,4 +48,8 @@ public class MemberService {
         memberRepository.delete(id);
     }
 
+    public void update(MemberDTO memberDTO) {
+        memberRepository.update(memberDTO);
+    }
+
 }
