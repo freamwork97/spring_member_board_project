@@ -4,14 +4,11 @@
 
 <mapper namespace="Member">
     <insert id="save" parameterType="member">
-        insert into member(memberEmail, memberPassword, memberName, memberMobile,memberProfile)
-        values (#{memberEmail}, #{memberPassword}, #{memberName}, #{memberMobile},#{memberProfile})
+        insert into member(memberEmail, memberPassword, memberName, memberMobile)
+        values (#{memberEmail}, #{memberPassword}, #{memberName}, #{memberMobile})
     </insert>
 
-    <insert id="saveFile" parameterType="memberfile">
-        insert into member_profile(originalFileName, storedFileName, memberId)
-        values (#{originalFileName}, #{storedFileName}, #{memberId})
-    </insert>
+
 
     <select id="login" parameterType="member" resultType="member">
         select *
