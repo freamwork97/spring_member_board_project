@@ -4,8 +4,8 @@
 
 <mapper namespace="Member">
     <insert id="save" parameterType="member">
-        insert into member(memberEmail, memberPassword, memberName, memberMobile)
-        values (#{memberEmail}, #{memberPassword}, #{memberName}, #{memberMobile})
+        insert into member(memberEmail, memberPassword, memberName, memberMobile ,fileAttached)
+        values (#{memberEmail}, #{memberPassword}, #{memberName}, #{memberMobile} ,#{fileAttached})
     </insert>
 
 
