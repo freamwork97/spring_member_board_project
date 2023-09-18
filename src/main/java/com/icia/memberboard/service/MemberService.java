@@ -16,56 +16,6 @@ public class MemberService {
     @Autowired
     private MemberRepository memberRepository;
 
-//    public boolean save(MemberDTO memberDTO) throws IOException {
-//        if (memberDTO.getProfile().get(0).isEmpty()) {
-//            // 파일 없다.
-//            memberDTO.setMemberProfile(0);
-//            int result = memberRepository.save(memberDTO);
-//
-//            if (result > 0) {
-//                return true;
-//            } else {
-//                return false;
-//            }
-//        } else {
-//            // 파일 있다.
-//            memberDTO.setMemberProfile(1);
-//
-//            MemberDTO saveMember = memberRepository.save2(memberDTO);
-//            System.out.println("getId : "+saveMember.getId());
-//
-//            // 파일이 여러개 이기 때문에 반복문으로 파일 하나씩 꺼내서 저장 처리
-//            for (MultipartFile memberfile : memberDTO.getProfile()) {
-//                // 파일만 따로 가져오기
-//                // MultipartFile boardFile = boardDTO.getBoardFile();
-//                // 파일 이름 가져오기
-//                String originalFilename = memberfile.getOriginalFilename();
-//                System.out.println("originalFilename = " + originalFilename);
-//                // 저장용 이름 만들기
-//                System.out.println(System.currentTimeMillis());
-//                String storedFileName = System.currentTimeMillis() + "-" + originalFilename;
-//                System.out.println("storedFileName = " + storedFileName);
-//                // BoardFileDTO 세팅
-//                MemberProfileDTO memberProfileDTO = new MemberProfileDTO();
-//                memberProfileDTO.setOriginalFileName(originalFilename);
-//                memberProfileDTO.setStoredFileName(storedFileName);
-//                memberProfileDTO.setMemberId(saveMember.getId());
-//                System.out.println("getId : "+saveMember.getId());
-//                // 파일 저장용 폴더에 파일 저장 처리
-//                String savePath = "D:\\spring_img\\" + storedFileName;
-//                memberfile.transferTo(new File(savePath));
-//                // board_file_table 저장 처리
-//                memberRepository.saveFile(memberProfileDTO);
-//            }
-//        }
-//        int result=1;
-//        if (result>0) {
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
-
     public void save(MemberDTO memberDTO) throws IOException {
         /*
             - 파일 있다.
@@ -148,7 +98,6 @@ public class MemberService {
     public List<MemberProfileDTO> findFile(Long id) {
         return memberRepository.findFile(id);
     }
-
 
     public void update(MemberDTO memberDTO) {
         memberRepository.update(memberDTO);
