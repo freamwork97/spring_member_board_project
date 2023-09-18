@@ -22,6 +22,7 @@ public class MemberController {
     @Autowired
     private MemberService memberService;
 
+
     @GetMapping("/save")
     public String save() {
         return "member/membersave";

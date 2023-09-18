@@ -8,6 +8,7 @@ import java.util.List;
 @Data
 public class BoardDTO {
     private Long id;
+    private Long memberId;
     private String boardTitle;
     private String boardWriter;
     private String boardContents;

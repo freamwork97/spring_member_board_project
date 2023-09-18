@@ -55,6 +55,9 @@
         <li class="menu-item"  id="login-area4">
 
         </li>
+        <li class="menu-item"  id="login-area5">
+
+        </li>
     </ul>
 </div>
 <script>
@@ -62,6 +65,7 @@
     const loginArea2 = document.getElementById("login-area2");
     const loginArea3 = document.getElementById("login-area3");
     const loginArea4 = document.getElementById("login-area4");
+    const loginArea5 = document.getElementById("login-area5");
     const loginEmail = '${sessionScope.loginEmail}';
     console.log(loginEmail.length);
     if (loginEmail.length != 0) {
@@ -72,7 +76,8 @@
         }
         loginArea2.innerHTML = "<a href='/update'>" + loginEmail + "님 환영해요!</a>";
         loginArea3.innerHTML = "<a href='/list'>글목록</a>";
-        loginArea4.innerHTML = "<a href='/logout'>logout</a>";
+        loginArea4.innerHTML = "<a href='/write'>글쓰기</a>";
+        loginArea5.innerHTML = "<a href='/logout'>logout</a>";
 
     } else {
         // 로그인 안했음
