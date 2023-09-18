@@ -10,6 +10,7 @@
 <div id="section">
     <form action="/write" method="post" enctype="multipart/form-data">
         <input type="text" name="boardTitle" placeholder="제목을 입력하세요"> <br>
+<%--        <input type="text" name="boardWriter" value="${member.memberEmail}" placeholder="작성자를 입력하세요" readonly> <br>--%>
         <textarea name="boardContents" cols="30" rows="10"></textarea> <br>
         <input type="file" name="boardFile" multiple> <br>
         <input type="submit" value="작성">
