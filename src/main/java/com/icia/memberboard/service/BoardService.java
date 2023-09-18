@@ -133,4 +133,17 @@ public class BoardService {
         return pageDTO;
     }
 
+    public BoardDTO findById(Long id) {
+        return boardRepository.findById(id);
+    }
+
+    public List<BoardFileDTO> findFile(Long id) {
+        return boardRepository.findFile(id);
+    }
+
+    public void updateHits(Long id) {
+        boardRepository.updateHits(id);
+    }
+
+
 }

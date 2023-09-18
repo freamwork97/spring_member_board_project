@@ -1,6 +1,7 @@
 package com.icia.memberboard.controller;
 
 import com.icia.memberboard.dto.BoardDTO;
+import com.icia.memberboard.dto.BoardFileDTO;
 import com.icia.memberboard.dto.MemberDTO;
 import com.icia.memberboard.dto.PageDTO;
 import com.icia.memberboard.service.BoardService;
@@ -68,5 +69,36 @@ public class BoardController {
 
         return "board/boardlist";
     }
+
+    @GetMapping
+    public String findById(@RequestParam("id") Long id,
+                           @RequestParam(value = "page", required = false, defaultValue = "1") int page,
+                           @RequestParam(value = "q", required = false, defaultValue = "") String q,
+                           @RequestParam(value = "type", required = false, defaultValue = "boardTitle") String type,
+                           Model model) {
+        // 조회수 처리
+        // 데이터 가져오기
+        boardService.updateHits(id);
+        BoardDTO boardDTO = boardService.findById(id);
+        model.addAttribute("board", boardDTO);
+        // 첨부된 파일이 있다면 파일을 가져옴
+        if (boardDTO.getFileAttached() == 1) {
+            List<BoardFileDTO> boardFileDTOList = boardService.findFile(id);
+            model.addAttribute("boardFileList", boardFileDTOList);
+        }
+
+//        List<CommentDTO> commentDTOList = commentService.findAll(id);
+//        if (commentDTOList.size() == 0) {
+//            model.addAttribute("commentList", null);
+//        } else {
+//            model.addAttribute("commentList", commentDTOList);
+//        }
+
+        model.addAttribute("q", q);
+        model.addAttribute("type", type);
+        model.addAttribute("page", page);
+        return "/board/boarddetail";
+    }
+
 
 }
