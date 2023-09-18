@@ -96,6 +96,7 @@
         - 댓글 삭제 기능
         - 댓글 좋아요, 싫어요 기능
 
+# SQL 테이블
 
 ```sql
 create table member(
