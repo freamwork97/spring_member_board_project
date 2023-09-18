@@ -13,9 +13,6 @@ public class MemberRepository {
     @Autowired
     private SqlSessionTemplate sql;
 
-//    public int save(MemberDTO memberDTO) {
-//        return sql.insert("Member.save", memberDTO);
-//    }
     public MemberDTO save(MemberDTO memberDTO) {
         System.out.println("insert 전 memberDTO = " + memberDTO);
         sql.insert("Member.save", memberDTO);
