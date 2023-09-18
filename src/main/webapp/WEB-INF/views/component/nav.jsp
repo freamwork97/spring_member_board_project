@@ -52,12 +52,16 @@
         <li class="menu-item"  id="login-area3">
 <%--            <a href="/list">글목록</a>--%>
         </li>
+        <li class="menu-item"  id="login-area4">
+
+        </li>
     </ul>
 </div>
 <script>
     const loginArea1 = document.getElementById("login-area1");
     const loginArea2 = document.getElementById("login-area2");
     const loginArea3 = document.getElementById("login-area3");
+    const loginArea4 = document.getElementById("login-area4");
     const loginEmail = '${sessionScope.loginEmail}';
     console.log(loginEmail.length);
     if (loginEmail.length != 0) {
@@ -67,11 +71,13 @@
 
         }
         loginArea2.innerHTML = "<a href='/update'>" + loginEmail + "님 환영해요!</a>";
-        loginArea3.innerHTML = "<a href='/logout'>logout</a>";
+        loginArea3.innerHTML = "<a href='/list'>글목록</a>";
+        loginArea4.innerHTML = "<a href='/logout'>logout</a>";
 
     } else {
         // 로그인 안했음
         loginArea1.innerHTML = "<a href='/save'>회원가입</a>";
-        loginArea2.innerHTML = "<a href='/login'>로그인</a>";
+        loginArea2.innerHTML = "<a href='/list'>글목록</a>";
+        loginArea3.innerHTML = "<a href='/login'>로그인</a>";
     }
 </script>

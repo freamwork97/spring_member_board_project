@@ -24,7 +24,7 @@ public class MemberController {
 
     @GetMapping("/save")
     public String save() {
-        return "page/membersave";
+        return "member/membersave";
     }
 
     @PostMapping("/save")
@@ -33,7 +33,7 @@ public class MemberController {
             memberService.save(memberDTO);
             return "page/login";
         } catch (Exception e) {
-            return "page/membersave";
+            return "member/membersave";
         }
     }
 
@@ -82,7 +82,7 @@ public class MemberController {
         List<MemberDTO> memberDTOList = memberService.list();
         System.out.println("memberList = " + memberDTOList);
         model.addAttribute("memberList", memberDTOList); // 화면에 가져갈 데이터
-        return "page/memberlist"; // 브라우저에 출력할 jsp 파일 이름
+        return "member/memberlist"; // 브라우저에 출력할 jsp 파일 이름
     }
 
     @GetMapping("/member")
@@ -97,7 +97,7 @@ public class MemberController {
             model.addAttribute("memberProfileList", memberProfileDTOList);
         }
 
-        return "page/memberdetail";
+        return "member/memberdetail";
     }
 
     @GetMapping("/delete")
@@ -112,7 +112,7 @@ public class MemberController {
         String memberEmail = (String) session.getAttribute("loginEmail");
         MemberDTO memberDTO = memberService.findByMemberEmail(memberEmail);
         model.addAttribute("member", memberDTO);
-        return "page/memberupdate";
+        return "member/memberupdate";
     }
 
     @PostMapping("/update")
