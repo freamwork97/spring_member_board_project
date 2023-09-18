@@ -22,11 +22,6 @@
         order by id desc
     </select>
 
-    <!--    <select id="findFile" parameterType="Long" resultType="boardFile">-->
-    <!--        select *-->
-    <!--        from board_file_table-->
-    <!--        where boardId = #{boardId}-->
-    <!--    </select>-->
     <select id="pagingList" parameterType="java.util.HashMap" resultType="board">
         select id,
                boardWriter,

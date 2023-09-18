@@ -89,14 +89,14 @@
 
         }
         // loginArea2.innerHTML = "<a href='/update'>" + loginEmail + "님 환영해요!</a>";
-        loginArea3.innerHTML = "<a href='/list'>글목록</a>";
-        loginArea4.innerHTML = "<a href='/write'>글쓰기</a>";
+        loginArea3.innerHTML = "<a href='/board/list'>글목록</a>";
+        loginArea4.innerHTML = "<a href='/board/write'>글쓰기</a>";
         loginArea5.innerHTML = "<a href='/logout'>logout</a>";
 
     } else {
         // 로그인 안했음
         loginArea1.innerHTML = "<a href='/save'>회원가입</a>";
-        loginArea2.innerHTML = "<a href='/list'>글목록</a>";
+        loginArea2.innerHTML = "<a href='/board/list'>글목록</a>";
         loginArea3.innerHTML = "<a href='/login'>로그인</a>";
     }
 </script>
