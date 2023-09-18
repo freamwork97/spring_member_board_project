@@ -17,7 +17,7 @@
         <input type="text" name="memberPassword" placeholder="비밀번호"> <br>
         <input type="text" name="memberMobile" placeholder="전화번호"> <br>
         <%--        프로필<br><input type="file" name="memberFile" memberProFile> <br>--%>
-        <input type="file" name="profile"> <br>
+        <input type="file" name="profile" multiple> <br>
         <input type="submit" value="회원가입">
     </form>
 </div>
@@ -25,11 +25,6 @@
 </body>
 
 <script>
-    const img = document.getElementById("img").value;
-    const saveimg = () => {
-
-    }
-
     const email_dup_check = () => {
         const email = document.getElementById("member-email").value;
         const result = document.getElementById("email-dup-check-result");
