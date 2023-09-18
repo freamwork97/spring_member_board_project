@@ -10,7 +10,7 @@
 <%@include file="../component/nav.jsp" %>
 <div class="container" id="section">
     <h2>게시글 작성</h2>
-    <form action="/write" method="post" enctype="multipart/form-data">
+    <form action="/board/write" method="post" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="boardTitle" class="form-label">제목</label>
             <input type="text" class="form-control" id="boardTitle" name="boardTitle" placeholder="제목을 입력하세요" required>

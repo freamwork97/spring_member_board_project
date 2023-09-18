@@ -36,9 +36,8 @@ public class BoardController {
         MemberDTO memberDTO = memberService.findByMemberEmail(loginEmail);
         boardDTO.setMemberId(memberDTO.getId());
         boardDTO.setBoardWriter(loginEmail);
-        // 나머지는 이미 BoardService에서 처리하고 있기 때문에 boardService.save(boardDTO)만 호출합니다.
         boardService.save(boardDTO);
-        return "redirect:/list"; // 저장 후 리스트 페이지로 이동합니다.
+        return "redirect:/board/list"; // 저장 후 리스트 페이지로 이동합니다.
     }
 
     // /board/
