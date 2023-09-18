@@ -1,6 +1,7 @@
 package com.icia.memberboard.controller;
 
 import com.icia.memberboard.dto.BoardDTO;
+import com.icia.memberboard.dto.MemberDTO;
 import com.icia.memberboard.dto.PageDTO;
 import com.icia.memberboard.service.BoardService;
 import com.icia.memberboard.service.MemberService;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -21,17 +24,22 @@ public class BoardController {
     private BoardService boardService;
     @Autowired
     private MemberService memberService;
-
+    private HttpSession session; // HttpSession 주입
     @GetMapping("/write") // /board/save
     public String saveForm() {
         return "board/boardsave";
     }
 
     @PostMapping("/write")
-    public String save(@ModelAttribute BoardDTO boardDTO) throws IOException {
-
+    public String save(@ModelAttribute BoardDTO boardDTO, HttpServletRequest request) throws IOException {
+        // 로그인한 사용자의 정보를 가져와서 boardDTO의 memberId에 설정합니다.
+        String loginEmail = (String) request.getSession().getAttribute("loginEmail");
+        MemberDTO memberDTO = memberService.findByMemberEmail(loginEmail);
+        boardDTO.setMemberId(memberDTO.getId());
+        boardDTO.setBoardWriter(loginEmail);
+        // 나머지는 이미 BoardService에서 처리하고 있기 때문에 boardService.save(boardDTO)만 호출합니다.
         boardService.save(boardDTO);
-        return "/board/boardlist";
+        return "redirect:/list"; // 저장 후 리스트 페이지로 이동합니다.
     }
 
 
