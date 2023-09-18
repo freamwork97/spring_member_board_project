@@ -90,11 +90,11 @@ public class MemberService {
             System.out.println("getId : " + saveMember.getId());
 
             // 파일이 여러개 이기 때문에 반복문으로 파일 하나씩 꺼내서 저장 처리
-            for (MultipartFile memberfile : memberDTO.getProfile()) {
+            for (MultipartFile profile : memberDTO.getProfile()) {
                 // 파일만 따로 가져오기
                 // MultipartFile boardFile = boardDTO.getBoardFile();
                 // 파일 이름 가져오기
-                String originalFilename = memberfile.getOriginalFilename();
+                String originalFilename = profile.getOriginalFilename();
                 System.out.println("originalFilename = " + originalFilename);
                 // 저장용 이름 만들기
                 System.out.println(System.currentTimeMillis());
@@ -109,7 +109,7 @@ public class MemberService {
 
                 // 파일 저장용 폴더에 파일 저장 처리
                 String savePath = "D:\\spring_img\\" + storedFileName;
-                memberfile.transferTo(new File(savePath));
+                profile.transferTo(new File(savePath));
                 // board_file_table 저장 처리
                 memberRepository.saveFile(memberProfileDTO);
             }
