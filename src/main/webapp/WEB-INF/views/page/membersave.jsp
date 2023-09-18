@@ -17,7 +17,7 @@
         <input type="text" name="memberPassword" placeholder="비밀번호"> <br>
         <input type="text" name="memberMobile" placeholder="전화번호"> <br>
         <%--        프로필<br><input type="file" name="memberFile" memberProFile> <br>--%>
-        <input type="file" name="memberProfile"> <br>
+        <input type="file" name="profile"> <br>
         <input type="submit" value="회원가입">
     </form>
 </div>

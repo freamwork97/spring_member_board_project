@@ -3,11 +3,20 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Member">
+<!--    <insert id="save" parameterType="member">-->
+<!--        insert into member(memberEmail, memberPassword, memberName, memberMobile ,memberProfile)-->
+<!--        values (#{memberEmail}, #{memberPassword}, #{memberName}, #{memberMobile} ,#{memberProfile})-->
+<!--    </insert>-->
+
     <insert id="save" parameterType="member">
-        insert into member(memberEmail, memberPassword, memberName, memberMobile ,fileAttached)
-        values (#{memberEmail}, #{memberPassword}, #{memberName}, #{memberMobile} ,#{fileAttached})
+        insert into member(memberEmail, memberPassword, memberName, memberMobile )
+        values (#{memberEmail}, #{memberPassword}, #{memberName}, #{memberMobile} )
     </insert>
 
+    <insert id="saveFile" parameterType="memberprofile">
+        insert into member_profile(originalFileName, storedFileName, memberId)
+        values (#{originalFileName}, #{storedFileName}, #{memberId})
+    </insert>
 
 
     <select id="login" parameterType="member" resultType="member">

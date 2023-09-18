@@ -13,19 +13,21 @@ public class MemberRepository {
     @Autowired
     private SqlSessionTemplate sql;
 
-    public int save(MemberDTO memberDTO) {
-        return sql.insert("Member.save", memberDTO);
-    }
-//    public MemberDTO save(MemberDTO memberDTO) {
-//        System.out.println("insert 전 memberDTO = " + memberDTO);
-//        sql.insert("Member.save", memberDTO);
-//        System.out.println("insert 후 memberDTO = " + memberDTO);
-//        return memberDTO;
+//    public int save(MemberDTO memberDTO) {
+//        return sql.insert("Member.save", memberDTO);
 //    }
+    public MemberDTO save(MemberDTO memberDTO) {
+        System.out.println("insert 전 memberDTO = " + memberDTO);
+        sql.insert("Member.save", memberDTO);
+        System.out.println("insert 후 memberDTO = " + memberDTO);
 
-//    public void saveFile(MemberProfileDTO memberProfileDTO) {
-//        sql.insert("Member.saveFile", memberProfileDTO);
-//    }
+        return memberDTO;
+    }
+
+    public void saveFile(MemberProfileDTO memberProfileDTO) {
+        sql.insert("Member.saveFile", memberProfileDTO);
+//        System.out.println("member id : "+memberProfileDTO.getMemberId());
+    }
 
     public MemberDTO login(MemberDTO memberDTO) {
         return sql.selectOne("Member.login", memberDTO);

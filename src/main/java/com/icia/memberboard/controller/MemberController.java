@@ -26,25 +26,32 @@ public class MemberController {
         return "page/membersave";
     }
 
-    @PostMapping("/save")
-    public String save(@ModelAttribute MemberDTO memberDTO) throws IOException {
-        boolean result = memberService.save(memberDTO);
-        if (result) {
-            return "page/login";
-        } else {
-            return "page/membersave";
-        }
-    }
 //    @PostMapping("/save")
 //    public String save(@ModelAttribute MemberDTO memberDTO) throws IOException {
+////        boolean result = memberService.save(memberDTO);
+////        if (result) {
+////            return "page/login";
+////        } else {
+////            return "page/membersave";
+////        }
+//
 //        try {
 //            memberService.save(memberDTO);
 //            return "page/login";
 //        } catch (Exception e) {
 //            return "page/membersave";
 //        }
-//
 //    }
+    @PostMapping("/save")
+    public String save(@ModelAttribute MemberDTO memberDTO) throws IOException {
+        try {
+            memberService.save(memberDTO);
+            return "page/login";
+        } catch (Exception e) {
+            return "page/membersave";
+        }
+
+    }
 
     @GetMapping("/login")
     public String login() {

@@ -12,7 +12,7 @@ public class MemberDTO {
     private String memberPassword;
     private String memberName;
     private String memberMobile;
-    private int profileAttached;
-    private List<MultipartFile> memberProfile;
+    private int memberProfile;
+    private List<MultipartFile> profile;
 
 }
