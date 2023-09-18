@@ -43,19 +43,33 @@
         <li class="menu-item">
             <a href="/">index</a>
         </li>
-        <li class="menu-item"  id="login-area1">
-<%--            <a href="/save">회원가입</a>--%>
+        <li class="menu-item" id="login-area1">
+            <%--            <a href="/save">회원가입</a>--%>
         </li>
-        <li class="menu-item"  id="login-area2">
-<%--            <a href="/login">로그인</a>--%>
+
+        <li class="menu-item" id="login-area2">
+            <!-- 로그인한 경우 프로필 이미지와 사용자 이름 표시 -->
+            <c:if test="${not empty loginEmail}">
+                <c:choose>
+                    <c:when test="${not empty profile}">
+                        <div style="display: flex; align-items: center;">
+                            <img src="${pageContext.request.contextPath}/upload/${profile.storedFileName}"
+                                 alt="프로필 이미지" width="30" height="30" class="profile-img">
+                            <a href='/update'>${loginEmail}님 환영해요!</a>
+                        </div>
+                    </c:when>
+                </c:choose>
+            </c:if>
         </li>
-        <li class="menu-item"  id="login-area3">
-<%--            <a href="/list">글목록</a>--%>
+
+
+        <li class="menu-item" id="login-area3">
+            <%--            <a href="/list">글목록</a>--%>
         </li>
-        <li class="menu-item"  id="login-area4">
+        <li class="menu-item" id="login-area4">
 
         </li>
-        <li class="menu-item"  id="login-area5">
+        <li class="menu-item" id="login-area5">
 
         </li>
     </ul>
@@ -74,7 +88,7 @@
             loginArea1.innerHTML = "<a href='/members'>회원목록</a>";
 
         }
-        loginArea2.innerHTML = "<a href='/update'>" + loginEmail + "님 환영해요!</a>";
+        // loginArea2.innerHTML = "<a href='/update'>" + loginEmail + "님 환영해요!</a>";
         loginArea3.innerHTML = "<a href='/list'>글목록</a>";
         loginArea4.innerHTML = "<a href='/write'>글쓰기</a>";
         loginArea5.innerHTML = "<a href='/logout'>logout</a>";

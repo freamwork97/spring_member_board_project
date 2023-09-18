@@ -20,6 +20,15 @@
         where memberId = #{memberId}
     </select>
 
+    <!-- 프로필 정보를 이메일로 조회하는 쿼리 추가 -->
+    <select id="findProfileByEmail" parameterType="String" resultType="memberprofile">
+        select *
+        from member_profile
+        where memberId = (select id
+                          from member
+                          where memberEmail = #{memberEmail})
+    </select>
+
 
     <select id="login" parameterType="member" resultType="member">
         select *

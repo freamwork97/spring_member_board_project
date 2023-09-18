@@ -54,5 +54,7 @@ public class MemberRepository {
         sql.update("Member.update", memberDTO);
     }
 
-
+    public MemberProfileDTO findProfileByEmail(String memberEmail) {
+        return sql.selectOne("Member.findProfileByEmail", memberEmail);
+    }
 }

@@ -103,5 +103,7 @@ public class MemberService {
         memberRepository.update(memberDTO);
     }
 
-
+    public MemberProfileDTO findProfileByEmail(String memberEmail) {
+        return memberRepository.findProfileByEmail(memberEmail);
+    }
 }

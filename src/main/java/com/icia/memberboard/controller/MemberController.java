@@ -48,10 +48,9 @@ public class MemberController {
         boolean loginResult = memberService.login(memberDTO);
         if (loginResult) {
             // 로그인 성공시 사용자의 이메일을 세션에 저장
+            MemberProfileDTO profileDTO = memberService.findProfileByEmail(memberDTO.getMemberEmail());
+            session.setAttribute("profile", profileDTO);
             session.setAttribute("loginEmail", memberDTO.getMemberEmail());
-            // model.addAttribute("member", memberDTO); // x
-            // 모델에 이메일 저장
-            model.addAttribute("email", memberDTO.getMemberEmail());
             return "redirect:/";
         } else {
             return "page/login";
