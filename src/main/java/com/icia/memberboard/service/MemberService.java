@@ -138,13 +138,17 @@ public class MemberService {
         return memberRepository.list();
     }
 
-    public MemberDTO detail(int id) {
+    public MemberDTO detail(Long id) {
         return memberRepository.detail(id);
     }
 
     public void delete(int id) {
         memberRepository.delete(id);
     }
+    public List<MemberProfileDTO> findFile(Long id) {
+        return memberRepository.findFile(id);
+    }
+
 
     public void update(MemberDTO memberDTO) {
         memberRepository.update(memberDTO);

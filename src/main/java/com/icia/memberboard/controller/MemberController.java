@@ -1,6 +1,7 @@
 package com.icia.memberboard.controller;
 
 import com.icia.memberboard.dto.MemberDTO;
+import com.icia.memberboard.dto.MemberProfileDTO;
 import com.icia.memberboard.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -102,10 +103,17 @@ public class MemberController {
     }
 
     @GetMapping("/member")
-    public String detail(@RequestParam("id") int id, Model model) {
+    public String detail(@RequestParam("id") Long id, Model model) {
         MemberDTO memberDTO = memberService.detail(id);
         System.out.println(id);
         model.addAttribute("member", memberDTO);
+
+        // 첨부된 파일이 있다면 파일을 가져옴
+        if (memberDTO.getMemberProfile() == 1) {
+            List<MemberProfileDTO> memberProfileDTOList = memberService.findFile(id);
+            model.addAttribute("memberProfileList", memberProfileDTOList);
+        }
+
         return "page/memberdetail";
     }
 

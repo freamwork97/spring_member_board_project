@@ -18,12 +18,12 @@
 <div class="container">
     <div id="member-list">
         <table class="table table-dark table-striped">
-<%--            <tr>--%>
-<%--                <th>id</th>--%>
-<%--                <td>${member.id}</td>--%>
-<%--            <tr>--%>
-                <th>email</th>
-                <td>${member.memberEmail}</td>
+            <%--            <tr>--%>
+            <%--                <th>id</th>--%>
+            <%--                <td>${member.id}</td>--%>
+            <%--            <tr>--%>
+            <th>email</th>
+            <td>${member.memberEmail}</td>
             </tr>
             <tr>
                 <th>name</th>
@@ -37,17 +37,17 @@
                 <th>mobile</th>
                 <td>${member.memberMobile}</td>
             </tr>
-            <%--      <c:if test="${member.memberProfile == 1}">--%>
-            <%--        <tr>--%>
-            <%--          <th>image</th>--%>
-            <%--          <td>--%>
-            <%--            <c:forEach items="${boardFileList}" var="boardFile">--%>
-            <%--              <img src="${pageContext.request.contextPath}/upload/${boardFile.storedFileName}"--%>
-            <%--                   alt="" width="100" height="100">--%>
-            <%--            </c:forEach>--%>
-            <%--          </td>--%>
-            <%--        </tr>--%>
-            <%--      </c:if>--%>
+            <c:if test="${member.memberProfile == 1}">
+                <tr>
+                    <th>profile</th>
+                    <td>
+                        <c:forEach items="${memberProfileList}" var="profile">
+                            <img src="${pageContext.request.contextPath}/upload/${profile.storedFileName}"
+                                 alt="" width="100" height="100">
+                        </c:forEach>
+                    </td>
+                </tr>
+            </c:if>
         </table>
         <a href="/members">목록으로 돌아가기</a>
     </div>

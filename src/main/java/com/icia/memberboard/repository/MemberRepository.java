@@ -41,9 +41,13 @@ public class MemberRepository {
         return sql.selectList("Member.list");
     }
 
-    public MemberDTO detail(int id) {
+    public MemberDTO detail(Long id) {
         return sql.selectOne("Member.detail", id);
     }
+    public List<MemberProfileDTO> findFile(Long memberId) {
+        return sql.selectList("Member.findFile", memberId);
+    }
+
 
     public void delete(int id) {
         sql.delete("Member.delete", id);
