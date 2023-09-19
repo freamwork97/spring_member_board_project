@@ -48,12 +48,12 @@
     </table>
     <button onclick="board_list()">목록</button>
     <%-- 수정은 자신의 글만 보이게 삭제는 admin과 자기 자신만이 가능하도록--%>
-    <c:if test="${board.boardWriter == member.memberEmail or member.memberEmail == 'admin'}">
+    <c:if test="${board.boardWriter == member.memberEmail}">
     <button onclick="board_update()">수정</button>
+    </c:if>
+    <c:if test="${board.boardWriter == member.memberEmail or member.memberEmail == 'admin'}">
     <button onclick="board_delete()">삭제</button>
     </c:if>
-
-
     <%--    <div id="pass-check" style="display: none;">--%>
     <%--        <input type="text" id="board-pass" placeholder="비밀번호 입력하세요">--%>
     <%--        <input type="button" onclick="pass_check()" value="확인">--%>
