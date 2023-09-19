@@ -9,15 +9,31 @@
 <body>
 <%@include file="../component/header.jsp" %>
 <%@include file="../component/nav.jsp" %>
-<div id="section">
+<div id="section" class="container">
     <form action="/save" method="post" enctype="multipart/form-data">
-        <input type="text" name="memberName" placeholder="이름"> <br>
-        <input type="text" name="memberEmail" id="member-email" onkeyup="email_dup_check()" placeholder="이메일"><br>
-        <p id="email-dup-check-result"></p>
-        <input type="text" name="memberPassword" placeholder="비밀번호"> <br>
-        <input type="text" name="memberMobile" placeholder="전화번호"> <br>
+        <div class="mb-3">
+            <label class="form-label">이름</label>
+            <input type="text" name="memberName" class="form-control" placeholder="이름"> <br>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">이메일</label>
+            <input type="text" name="memberEmail" class="form-control" id="member-email" onkeyup="email_dup_check()"
+                   placeholder="이메일"><br>
+            <p id="email-dup-check-result"></p>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">비밀번호</label>
+            <input type="text" name="memberPassword" class="form-control" placeholder="비밀번호"> <br>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">전화번호</label>
+            <input type="text" name="memberMobile" class="form-control" placeholder="전화번호"> <br>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">프로필</label>
+            <input type="file" class="form-control" name="profile" multiple> <br>
+        </div>
         <%--        프로필<br><input type="file" name="memberFile" memberProFile> <br>--%>
-        <input type="file" name="profile" multiple> <br>
         <input type="submit" value="회원가입">
     </form>
 </div>
