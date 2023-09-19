@@ -145,5 +145,9 @@ public class BoardService {
         boardRepository.updateHits(id);
     }
 
+    public void update(BoardDTO boardDTO) {
+        boardRepository.update(boardDTO);
+    }
+
 
 }

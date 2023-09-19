@@ -106,15 +106,26 @@ public class BoardController {
     }
 
     @GetMapping("/update")
-    public String update(){
-
-        return "/board/boardupdate";
+    public String updateForm(@RequestParam("id") Long id, Model model) {
+        BoardDTO boardDTO = boardService.findById(id);
+        model.addAttribute("board", boardDTO);
+        return "board/boardupdate";
     }
 
     @PostMapping("/update")
-    public String update(@RequestParam("id") Long id){
+    public String update(@ModelAttribute BoardDTO boardDTO, Model model) {
+        boardService.update(boardDTO);
+        BoardDTO dto = boardService.findById(boardDTO.getId());
+        model.addAttribute("board", dto);
 
-        return "/board/boarddetail";
+//        System.out.println("boardDTO : "+ boardDTO);
+        // 첨부된 파일이 있다면 파일을 가져옴
+        if (dto.getFileAttached() == 1) {
+            List<BoardFileDTO> boardFileDTOList = boardService.findFile(dto.getId());
+            model.addAttribute("boardFileList", boardFileDTOList);
+        }
+        return "board/boarddetail";
+//        return "redirect:/board?id=" + boardDTO.getId();
     }
 
 }

@@ -75,6 +75,13 @@
         set boardHits = boardHits + 1
         where id = #{id}
     </update>
+
+    <update id="update" parameterType="board">
+        update board
+        set boardTitle=#{boardTitle},
+            boardContents=#{boardContents}
+        where id = #{id}
+    </update>
 </mapper>
 
 

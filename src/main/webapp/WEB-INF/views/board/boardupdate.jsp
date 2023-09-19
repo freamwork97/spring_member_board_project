@@ -25,10 +25,10 @@
             <textarea name="boardContents" class="form-control" cols="30" rows="10">${board.boardContents}</textarea>
             <br>
         </div>
-        <div class="mb-3">
-            <label class="form-label">첨부파일</label>
-            <input type="file" class="form-control" id="boardFile" name="boardFile" multiple>
-        </div>
+<%--        <div class="mb-3">--%>
+<%--            <label class="form-label">첨부파일</label>--%>
+<%--            <input type="file" class="form-control" id="boardFile" name="boardFile" multiple>--%>
+<%--        </div>--%>
         <button type="submit" class="btn btn-primary">수정</button>
     </form>
 </div>
