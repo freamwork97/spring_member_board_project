@@ -7,20 +7,32 @@
 <body>
 <%@include file="../component/header.jsp" %>
 <%@include file="../component/nav.jsp" %>
-<div id="section">
+<div id="section" class="container">
+    <h2>게시글 수정</h2>
     <form action="/board/update" method="post" name="updateForm">
-        <input type="hidden" name="id" value="${board.id}"> <br>
-        <input type="text" name="boardTitle" value="${board.boardTitle}" placeholder="제목을 입력하세요"> <br>
-        <input type="text" name="boardWriter" value="${board.boardWriter}" readonly> <br>
-        <textarea name="boardContents" cols="30" rows="10">${board.boardContents}</textarea> <br>
-        <input type="button" value="수정" onclick="board_update()">
+        <input type="hidden" name="id" class="form-control" value="${board.id}"> <br>
+        <div class="mb-3">
+            <label class="form-label">제목</label>
+            <input type="text" name="boardTitle" class="form-control" value="${board.boardTitle}"
+                   placeholder="제목을 입력하세요"> <br>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">작성자</label>
+            <input type="text" name="boardWriter" class="form-control" value="${board.boardWriter}" readonly> <br>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">내용</label>
+            <textarea name="boardContents" class="form-control" cols="30" rows="10">${board.boardContents}</textarea>
+            <br>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">첨부파일</label>
+            <input type="file" class="form-control" id="boardFile" name="boardFile" multiple>
+        </div>
+        <button type="submit" class="btn btn-primary">수정</button>
     </form>
 </div>
 <%@include file="../component/footer.jsp" %>
 </body>
-<script>
-    const board_update = () => {
-        document.updateForm.submit();
-    }
-</script>
+
 </html>
