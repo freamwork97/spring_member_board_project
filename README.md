@@ -99,53 +99,62 @@
 # SQL 테이블
 
 ```sql
-create table member(
-	id bigint auto_increment primary key,
-    memberEmail varchar(50) unique,
+create table member
+(
+    id             bigint auto_increment primary key,
+    memberEmail    varchar(50) unique,
     memberPassword varchar(20) not null,
-    memberName varchar(20) not null,
-    memberMobile varchar(30) not null,
-    memberProfile int default 0
+    memberName     varchar(20) not null,
+    memberMobile   varchar(30) not null,
+    memberProfile  int default 0
 );
 ```
+
 ```sql
-create table member_profile(
-	id bigint primary key auto_increment,
+create table member_profile
+(
+    id               bigint primary key auto_increment,
     originalFileName varchar(100),
-    storedFileName varchar(100),
-    memberId bigint,
-    constraint foreign key(memberId) references member (id) on delete cascade
+    storedFileName   varchar(100),
+    memberId         bigint,
+    constraint foreign key (memberId) references member (id) on delete cascade
 );
 ```
+
 ```sql
-create table board(
-	id bigint auto_increment primary key,
-	boardTitle varchar(50) not null,
-    boardWriter varchar(50),
+create table board
+(
+    id            bigint auto_increment primary key,
+    boardTitle    varchar(50)  not null,
+    boardWriter   varchar(50),
     boardContents varchar(500) not null,
-    boardHits int default 0,
-	createdAt datetime default now(),
-    fileAttached int default 0,
-    memberId bigint,
-	constraint foreign key(memberId) references member (id) on delete cascade
+    boardHits     int      default 0,
+    createdAt     datetime default now(),
+    fileAttached  int      default 0,
+    memberId      bigint,
+    constraint foreign key (memberId) references member (id) on delete cascade
 );
 ```
+
 ```sql
-create table board_file_table(
-	id bigint primary key auto_increment,
+create table board_file_table
+(
+    id               bigint primary key auto_increment,
     originalFileName varchar(100),
-    storedFileName varchar(100),
-    boardId bigint,
-    constraint foreign key(boardId) references board (id) on delete cascade
+    storedFileName   varchar(100),
+    boardId          bigint,
+    constraint foreign key (boardId) references board (id) on delete cascade
 );
 ```
+
 ```sql
-create table comment_table(
-	id bigint auto_increment primary key,
-	boardid bigint,
-    commentWriter varchar(20),
+create table comment_table
+(
+    id              bigint auto_increment primary key,
+    boardid         bigint,
+    commentWriter   varchar(20),
     commentContents varchar(200),
-    createdAt datetime default now(),
-	constraint foreign key(boardId) references member (id) on delete cascade
+    createdAt       datetime default now(),
+    constraint foreign key (boardId) references member (id) on delete cascade
 );
 ```
