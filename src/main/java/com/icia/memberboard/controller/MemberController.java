@@ -44,11 +44,12 @@ public class MemberController {
     }
 
     @PostMapping("/login")
-    public String login(@ModelAttribute MemberDTO memberDTO, HttpSession session, Model model) {
+    public String login(@ModelAttribute MemberDTO memberDTO, HttpSession session) {
         boolean loginResult = memberService.login(memberDTO);
         if (loginResult) {
             // 로그인 성공시 사용자의 이메일을 세션에 저장
             MemberProfileDTO profileDTO = memberService.findProfileByEmail(memberDTO.getMemberEmail());
+//            System.out.println("profileDTO" + profileDTO);
             session.setAttribute("profile", profileDTO);
             session.setAttribute("loginEmail", memberDTO.getMemberEmail());
             return "redirect:/";
@@ -62,6 +63,7 @@ public class MemberController {
         // 아래 방법중 하나만 사용
         // 해당 파라미터만 없앨 경우
         session.removeAttribute("loginEmail");
+        session.removeAttribute("profile");
         // 세션 전체를 없앨 경우
 //        session.invalidate();
         return "redirect:/";
