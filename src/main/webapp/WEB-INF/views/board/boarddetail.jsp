@@ -141,10 +141,10 @@
         const id = '${board.id}';
         location.href = "/board/update?id=" + id;
     }
-    <%--const board_delete = () => {--%>
-    <%--    const passArea = document.getElementById("pass-check");--%>
-    <%--    passArea.style.display = "block";--%>
-    <%--}--%>
+    const board_delete = () => {
+        const id = '${board.id}';
+        location.href = "/board/delete?id=" + id;
+    }
     <%--const pass_check = () => {--%>
     <%--    const inputPass = document.getElementById("board-pass").value;--%>
     <%--    const pass = '${board.boardPass}';--%>

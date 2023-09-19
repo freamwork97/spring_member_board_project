@@ -127,6 +127,11 @@ public class BoardController {
         return "board/boarddetail";
 //        return "redirect:/board?id=" + boardDTO.getId();
     }
+    @GetMapping("/delete")
+    public String delete(@RequestParam("id") Long id) {
+        boardService.delete(id);
+        return "redirect:/board/list";
+    }
 
 }
 
