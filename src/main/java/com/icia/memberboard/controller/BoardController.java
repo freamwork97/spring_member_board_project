@@ -105,6 +105,17 @@ public class BoardController {
         return "/board/boarddetail";
     }
 
+    @GetMapping("/update")
+    public String update(){
+
+        return "/board/boardupdate";
+    }
+
+    @PostMapping("/update")
+    public String update(@RequestParam("id") Long id){
+
+        return "/board/boarddetail";
+    }
 
 }
 
