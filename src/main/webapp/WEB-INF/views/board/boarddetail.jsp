@@ -47,8 +47,8 @@
         </c:if>
     </table>
     <button onclick="board_list()">목록</button>
-    <%--    <button onclick="board_update()">수정</button>--%>
-    <%--    <button onclick="board_delete()">삭제</button>--%>
+    <button onclick="board_update()">수정</button>
+    <button onclick="board_delete()">삭제</button>
 
     <%--    <div id="pass-check" style="display: none;">--%>
     <%--        <input type="text" id="board-pass" placeholder="비밀번호 입력하세요">--%>
@@ -133,10 +133,10 @@
 
         location.href = "/board/list?page=" + page + "&q=" + q + "&type=" + type;
     }
-    <%--const board_update = () => {--%>
-    <%--    const id = '${board.id}';--%>
-    <%--    location.href = "/board/update?id=" + id;--%>
-    <%--}--%>
+    const board_update = () => {
+        const id = '${board.id}';
+        location.href = "/board/update?id=" + id;
+    }
     <%--const board_delete = () => {--%>
     <%--    const passArea = document.getElementById("pass-check");--%>
     <%--    passArea.style.display = "block";--%>
