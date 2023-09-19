@@ -49,87 +49,83 @@
     <button onclick="board_list()">목록</button>
     <%-- 수정은 자신의 글만 보이게 삭제는 admin과 자기 자신만이 가능하도록--%>
     <c:if test="${board.boardWriter == member.memberEmail}">
-    <button onclick="board_update()">수정</button>
+        <button onclick="board_update()">수정</button>
     </c:if>
     <c:if test="${board.boardWriter == member.memberEmail or member.memberEmail == 'admin'}">
-    <button onclick="board_delete()">삭제</button>
+        <button onclick="board_delete()">삭제</button>
     </c:if>
-    <%--    <div id="pass-check" style="display: none;">--%>
-    <%--        <input type="text" id="board-pass" placeholder="비밀번호 입력하세요">--%>
-    <%--        <input type="button" onclick="pass_check()" value="확인">--%>
-    <%--    </div>--%>
 
-    <%--    <div id="comment-write-area">--%>
-    <%--        <input type="text" id="comment-writer" placeholder="작성자 입력">--%>
-    <%--        <input type="text" id="comment-contents" placeholder="내용 입력">--%>
-    <%--        <button onclick="comment_write()">댓글작성</button>--%>
-    <%--    </div>--%>
-    <%--    <div id="comment-list-area">--%>
-    <%--        <c:choose>--%>
-    <%--            <c:when test="${commentList == null}">--%>
-    <%--                <h3>작성된 댓글이 없습니다.</h3>--%>
-    <%--            </c:when>--%>
-    <%--            <c:otherwise>--%>
-    <%--                <table id="comment-list" class="table table-dark table-striped">--%>
-    <%--                    <tr>--%>
-    <%--                        <th>작성자</th>--%>
-    <%--                        <th>내용</th>--%>
-    <%--                        <th>작성시간</th>--%>
-    <%--                    </tr>--%>
-    <%--                    <c:forEach items="${commentList}" var="comment">--%>
-    <%--                        <tr>--%>
-    <%--                            <td>${comment.commentWriter}</td>--%>
-    <%--                            <td>${comment.commentContents}</td>--%>
-    <%--                            <td>${comment.createdAt}</td>--%>
-    <%--                        </tr>--%>
-    <%--                    </c:forEach>--%>
-    <%--                </table>--%>
-    <%--            </c:otherwise>--%>
-    <%--        </c:choose>--%>
-    <%--    </div>--%>
-    <%--</div>--%>
-    <%@include file="../component/footer.jsp" %>
+    <div id="comment-write-area">
+        <input type="text" id="comment-writer" value="${board.boardWriter}" readonly>
+        <input type="text" id="comment-contents" placeholder="내용 입력">
+        <button onclick="comment_write()">댓글작성</button>
+    </div>
+    <div id="comment-list-area">
+        <c:choose>
+            <c:when test="${commentList == null}">
+                <h3>작성된 댓글이 없습니다.</h3>
+            </c:when>
+            <c:otherwise>
+                <table id="comment-list" class="table table-dark table-striped">
+                    <tr>
+                        <th>작성자</th>
+                        <th>내용</th>
+                        <th>작성시간</th>
+                    </tr>
+                    <c:forEach items="${commentList}" var="comment">
+                        <tr>
+                            <td>${comment.commentWriter}</td>
+                            <td>${comment.commentContents}</td>
+                            <td>${comment.createdAt}</td>
+                        </tr>
+                    </c:forEach>
+                </table>
+            </c:otherwise>
+        </c:choose>
+    </div>
+</div>
+<%@include file="../component/footer.jsp" %>
 
 </body>
 <script>
-    <%--const comment_write = () => {--%>
-    <%--    const commentWriter = document.getElementById("comment-writer").value;--%>
-    <%--    const commentContents = document.querySelector("#comment-contents").value;--%>
-    <%--    const boardId = '${board.id}';--%>
-    <%--    const result = document.getElementById("comment-list-area");--%>
-    <%--    $.ajax({--%>
-    <%--        type: "post",--%>
-    <%--        url: "/comment/save",--%>
-    <%--        data: {--%>
-    <%--            commentWriter: commentWriter,--%>
-    <%--            commentContents: commentContents,--%>
-    <%--            boardId: boardId--%>
-    <%--        },--%>
-    <%--        success: function (res) {--%>
-    <%--            console.log("리턴값: ", res);--%>
-    <%--            let output = "<table id=\"comment-list\">\n" +--%>
-    <%--                "    <tr>\n" +--%>
-    <%--                "        <th>작성자</th>\n" +--%>
-    <%--                "        <th>내용</th>\n" +--%>
-    <%--                "        <th>작성시간</th>\n" +--%>
-    <%--                "    </tr>\n";--%>
-    <%--            for (let i in res) {--%>
-    <%--                output += "    <tr>\n";--%>
-    <%--                output += "        <td>" + res[i].commentWriter + "</td>\n";--%>
-    <%--                output += "        <td>" + res[i].commentContents + "</td>\n";--%>
-    <%--                output += "        <td>" + res[i].createdAt + "</td>\n";--%>
-    <%--                output += "    </tr>\n";--%>
-    <%--            }--%>
-    <%--            output += "</table>";--%>
-    <%--            result.innerHTML = output;--%>
-    <%--            document.getElementById("comment-writer").value = "";--%>
-    <%--            document.getElementById("comment-contents").value = "";--%>
-    <%--        },--%>
-    <%--        error: function () {--%>
-    <%--            console.log("댓글 작성 실패");--%>
-    <%--        }--%>
-    <%--    });--%>
-    <%--}--%>
+    const comment_write = () => {
+        const commentWriter = '${board.boardWriter}';
+        const commentContents = document.querySelector("#comment-contents").value;
+        const boardId = '${board.id}';
+        const result = document.getElementById("comment-list-area");
+        $.ajax({
+            type: "post",
+            url: "/comment/save",
+            data: {
+                commentWriter: commentWriter,
+                commentContents: commentContents,
+                boardId: boardId
+            },
+            success: function (res) {
+                console.log("리턴값: ", res);
+                let output = "<table id=\"comment-list\" class='table table-dark table-striped' >\n" +
+                    "    <tr>\n" +
+                    "        <th>작성자</th>\n" +
+                    "        <th>내용</th>\n" +
+                    "        <th>작성시간</th>\n" +
+                    "    </tr>\n";
+                for (let i in res) {
+                    output += "    <tr>\n";
+                    output += "        <td>" + res[i].commentWriter + "</td>\n";
+                    output += "        <td>" + res[i].commentContents + "</td>\n";
+                    output += "        <td>" + res[i].createdAt + "</td>\n";
+                    output += "    </tr>\n";
+                }
+                output += "</table>";
+                result.innerHTML = output;
+                document.getElementById("comment-writer").value = commentWriter;
+                document.getElementById("comment-contents").value = "";
+            },
+            error: function () {
+                console.log("댓글 작성 실패");
+            }
+        });
+    }
     const board_list = () => {
         const page = '${page}';
         const q = '${q}';

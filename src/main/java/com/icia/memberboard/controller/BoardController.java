@@ -1,10 +1,8 @@
 package com.icia.memberboard.controller;
 
-import com.icia.memberboard.dto.BoardDTO;
-import com.icia.memberboard.dto.BoardFileDTO;
-import com.icia.memberboard.dto.MemberDTO;
-import com.icia.memberboard.dto.PageDTO;
+import com.icia.memberboard.dto.*;
 import com.icia.memberboard.service.BoardService;
+import com.icia.memberboard.service.CommentService;
 import com.icia.memberboard.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +22,9 @@ public class BoardController {
     @Autowired
     private MemberService memberService;
     private HttpSession session; // HttpSession 주입
+
+    @Autowired
+    private CommentService commentService;
 
     @GetMapping("/write") // /board/save
     public String saveForm() {
@@ -89,12 +90,12 @@ public class BoardController {
             model.addAttribute("boardFileList", boardFileDTOList);
         }
 
-//        List<CommentDTO> commentDTOList = commentService.findAll(id);
-//        if (commentDTOList.size() == 0) {
-//            model.addAttribute("commentList", null);
-//        } else {
-//            model.addAttribute("commentList", commentDTOList);
-//        }
+        List<CommentDTO> commentDTOList = commentService.findAll(id);
+        if (commentDTOList.size() == 0) {
+            model.addAttribute("commentList", null);
+        } else {
+            model.addAttribute("commentList", commentDTOList);
+        }
         String loginEmail = (String) request.getSession().getAttribute("loginEmail");
         MemberDTO memberDTO = memberService.findByMemberEmail(loginEmail);
 //        System.out.println("memberDTO : "+memberDTO);
@@ -127,6 +128,7 @@ public class BoardController {
         return "board/boarddetail";
 //        return "redirect:/board?id=" + boardDTO.getId();
     }
+
     @GetMapping("/delete")
     public String delete(@RequestParam("id") Long id) {
         boardService.delete(id);
