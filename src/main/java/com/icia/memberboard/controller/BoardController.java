@@ -80,6 +80,7 @@ public class BoardController {
         boardService.updateHits(id);
         BoardDTO boardDTO = boardService.findById(id);
         model.addAttribute("board", boardDTO);
+        System.out.println("boardDTO : "+ boardDTO);
         // 첨부된 파일이 있다면 파일을 가져옴
         if (boardDTO.getFileAttached() == 1) {
             List<BoardFileDTO> boardFileDTOList = boardService.findFile(id);

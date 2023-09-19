@@ -47,44 +47,44 @@
         </c:if>
     </table>
     <button onclick="board_list()">목록</button>
-<%--    <button onclick="board_update()">수정</button>--%>
-<%--    <button onclick="board_delete()">삭제</button>--%>
+    <%--    <button onclick="board_update()">수정</button>--%>
+    <%--    <button onclick="board_delete()">삭제</button>--%>
 
-<%--    <div id="pass-check" style="display: none;">--%>
-<%--        <input type="text" id="board-pass" placeholder="비밀번호 입력하세요">--%>
-<%--        <input type="button" onclick="pass_check()" value="확인">--%>
-<%--    </div>--%>
+    <%--    <div id="pass-check" style="display: none;">--%>
+    <%--        <input type="text" id="board-pass" placeholder="비밀번호 입력하세요">--%>
+    <%--        <input type="button" onclick="pass_check()" value="확인">--%>
+    <%--    </div>--%>
 
-<%--    <div id="comment-write-area">--%>
-<%--        <input type="text" id="comment-writer" placeholder="작성자 입력">--%>
-<%--        <input type="text" id="comment-contents" placeholder="내용 입력">--%>
-<%--        <button onclick="comment_write()">댓글작성</button>--%>
-<%--    </div>--%>
-<%--    <div id="comment-list-area">--%>
-<%--        <c:choose>--%>
-<%--            <c:when test="${commentList == null}">--%>
-<%--                <h3>작성된 댓글이 없습니다.</h3>--%>
-<%--            </c:when>--%>
-<%--            <c:otherwise>--%>
-<%--                <table id="comment-list" class="table table-dark table-striped">--%>
-<%--                    <tr>--%>
-<%--                        <th>작성자</th>--%>
-<%--                        <th>내용</th>--%>
-<%--                        <th>작성시간</th>--%>
-<%--                    </tr>--%>
-<%--                    <c:forEach items="${commentList}" var="comment">--%>
-<%--                        <tr>--%>
-<%--                            <td>${comment.commentWriter}</td>--%>
-<%--                            <td>${comment.commentContents}</td>--%>
-<%--                            <td>${comment.createdAt}</td>--%>
-<%--                        </tr>--%>
-<%--                    </c:forEach>--%>
-<%--                </table>--%>
-<%--            </c:otherwise>--%>
-<%--        </c:choose>--%>
-<%--    </div>--%>
-<%--</div>--%>
-<%@include file="../component/footer.jsp" %>
+    <%--    <div id="comment-write-area">--%>
+    <%--        <input type="text" id="comment-writer" placeholder="작성자 입력">--%>
+    <%--        <input type="text" id="comment-contents" placeholder="내용 입력">--%>
+    <%--        <button onclick="comment_write()">댓글작성</button>--%>
+    <%--    </div>--%>
+    <%--    <div id="comment-list-area">--%>
+    <%--        <c:choose>--%>
+    <%--            <c:when test="${commentList == null}">--%>
+    <%--                <h3>작성된 댓글이 없습니다.</h3>--%>
+    <%--            </c:when>--%>
+    <%--            <c:otherwise>--%>
+    <%--                <table id="comment-list" class="table table-dark table-striped">--%>
+    <%--                    <tr>--%>
+    <%--                        <th>작성자</th>--%>
+    <%--                        <th>내용</th>--%>
+    <%--                        <th>작성시간</th>--%>
+    <%--                    </tr>--%>
+    <%--                    <c:forEach items="${commentList}" var="comment">--%>
+    <%--                        <tr>--%>
+    <%--                            <td>${comment.commentWriter}</td>--%>
+    <%--                            <td>${comment.commentContents}</td>--%>
+    <%--                            <td>${comment.createdAt}</td>--%>
+    <%--                        </tr>--%>
+    <%--                    </c:forEach>--%>
+    <%--                </table>--%>
+    <%--            </c:otherwise>--%>
+    <%--        </c:choose>--%>
+    <%--    </div>--%>
+    <%--</div>--%>
+    <%@include file="../component/footer.jsp" %>
 
 </body>
 <script>

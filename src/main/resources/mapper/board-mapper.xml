@@ -57,7 +57,9 @@
                boardTitle,
                boardContents,
                date_format(createdAt, "%y-%m-%d %H:%i:%s") as createdAt,
-               boardHits
+               boardHits,
+               fileAttached,
+               memberId
         from board
         where id = #{id}
     </select>
