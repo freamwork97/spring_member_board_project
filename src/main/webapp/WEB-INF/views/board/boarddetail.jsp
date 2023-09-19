@@ -145,15 +145,5 @@
         const id = '${board.id}';
         location.href = "/board/delete?id=" + id;
     }
-    <%--const pass_check = () => {--%>
-    <%--    const inputPass = document.getElementById("board-pass").value;--%>
-    <%--    const pass = '${board.boardPass}';--%>
-    <%--    const id = '${board.id}';--%>
-    <%--    if (inputPass == pass) {--%>
-    <%--        location.href = "/board/delete?id=" + id;--%>
-    <%--    } else {--%>
-    <%--        alert("비밀번호 불일치!");--%>
-    <%--    }--%>
-    <%--}--%>
 </script>
 </html>
