@@ -47,8 +47,8 @@
         </c:if>
     </table>
     <button onclick="board_list()">목록</button>
-    <button onclick="board_update()">수정</button>
-    <button onclick="board_delete()">삭제</button>
+<%--    <button onclick="board_update()">수정</button>--%>
+<%--    <button onclick="board_delete()">삭제</button>--%>
 
 <%--    <div id="pass-check" style="display: none;">--%>
 <%--        <input type="text" id="board-pass" placeholder="비밀번호 입력하세요">--%>

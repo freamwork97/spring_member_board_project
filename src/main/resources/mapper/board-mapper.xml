@@ -69,7 +69,7 @@
     </select>
 
     <update id="updateHits" parameterType="Long">
-        update board_table
+        update board
         set boardHits = boardHits + 1
         where id = #{id}
     </update>

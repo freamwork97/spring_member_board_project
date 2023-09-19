@@ -17,19 +17,19 @@ import java.io.IOException;
 import java.util.List;
 
 @Controller
-//@RequestMapping("/board")
+@RequestMapping("/board")
 public class BoardController {
     @Autowired
     private BoardService boardService;
     @Autowired
     private MemberService memberService;
     private HttpSession session; // HttpSession 주입
-    @GetMapping("/board/write") // /board/save
+    @GetMapping("/write") // /board/save
     public String saveForm() {
         return "board/boardsave";
     }
 
-    @PostMapping("/board/write")
+    @PostMapping("/write")
     public String save(@ModelAttribute BoardDTO boardDTO, HttpServletRequest request) throws IOException {
         // 로그인한 사용자의 정보를 가져와서 boardDTO의 memberId에 설정합니다.
         String loginEmail = (String) request.getSession().getAttribute("loginEmail");
@@ -44,7 +44,7 @@ public class BoardController {
     // /board?id=1
     // /board/list?page=1
 
-    @GetMapping("/board/list")
+    @GetMapping("/list")
     public String findAll(@RequestParam(value = "page", defaultValue = "1") int page,
                           @RequestParam(value = "q", defaultValue = "") String q,
                           @RequestParam(value = "type", defaultValue = "boardTitle") String type,
@@ -101,3 +101,4 @@ public class BoardController {
 
 
 }
+
