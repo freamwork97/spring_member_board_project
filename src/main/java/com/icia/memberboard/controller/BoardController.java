@@ -75,7 +75,8 @@ public class BoardController {
                            @RequestParam(value = "page", required = false, defaultValue = "1") int page,
                            @RequestParam(value = "q", required = false, defaultValue = "") String q,
                            @RequestParam(value = "type", required = false, defaultValue = "boardTitle") String type,
-                           Model model) {
+                           Model model,
+                           HttpServletRequest request) {
         // 조회수 처리
         // 데이터 가져오기
         boardService.updateHits(id);
@@ -94,7 +95,10 @@ public class BoardController {
 //        } else {
 //            model.addAttribute("commentList", commentDTOList);
 //        }
-
+        String loginEmail = (String) request.getSession().getAttribute("loginEmail");
+        MemberDTO memberDTO = memberService.findByMemberEmail(loginEmail);
+//        System.out.println("memberDTO : "+memberDTO);
+        model.addAttribute("member", memberDTO);
         model.addAttribute("q", q);
         model.addAttribute("type", type);
         model.addAttribute("page", page);
