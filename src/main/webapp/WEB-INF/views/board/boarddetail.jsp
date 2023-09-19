@@ -56,7 +56,7 @@
     </c:if>
 
     <div id="comment-write-area">
-        <input type="text" id="comment-writer" value="${board.boardWriter}" readonly>
+        <input type="text" id="comment-writer" value="${member.memberEmail}" readonly>
         <input type="text" id="comment-contents" placeholder="내용 입력">
         <button onclick="comment_write()">댓글작성</button>
     </div>
@@ -89,7 +89,7 @@
 </body>
 <script>
     const comment_write = () => {
-        const commentWriter = '${board.boardWriter}';
+        const commentWriter = '${member.memberEmail}';
         const commentContents = document.querySelector("#comment-contents").value;
         const boardId = '${board.id}';
         const result = document.getElementById("comment-list-area");
