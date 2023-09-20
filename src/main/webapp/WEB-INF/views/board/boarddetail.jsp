@@ -11,27 +11,27 @@
 <%@include file="../component/nav.jsp" %>
 <div id="section" class="container">
     <table class="table table-secondary table-striped">
-        <tr>
-            <th>id</th>
-            <td>${board.id}</td>
-        <tr>
-            <th>writer</th>
+<%--        <tr>--%>
+<%--            <th>id</th>--%>
+<%--            <td>${board.id}</td>--%>
+<%--        <tr>--%>
+            <th>작성자</th>
             <td>${board.boardWriter}</td>
         </tr>
         <tr>
-            <th>date</th>
+            <th>날짜</th>
             <td>${board.createdAt}</td>
         </tr>
         <tr>
-            <th>hits</th>
+            <th>조회수</th>
             <td>${board.boardHits}</td>
         </tr>
         <tr>
-            <th>title</th>
+            <th>제목</th>
             <td>${board.boardTitle}</td>
         </tr>
         <tr>
-            <th>contents</th>
+            <th>내용</th>
             <td>${board.boardContents}</td>
         </tr>
         <c:if test="${board.fileAttached == 1}">
