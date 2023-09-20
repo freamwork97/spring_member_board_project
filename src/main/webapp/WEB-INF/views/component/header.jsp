@@ -7,6 +7,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%-- header라는 id가 적용된 div--%>
-<div id="header">
+<div id="header" class="text-center">
     <h1>Member_Board Project</h1>
 </div>
