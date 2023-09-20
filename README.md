@@ -151,10 +151,13 @@ create table board_file_table
 create table comment_table
 (
     id              bigint auto_increment primary key,
-    boardid         bigint,
+    boardId         bigint,
+    memberId        bigint,
     commentWriter   varchar(20),
     commentContents varchar(200),
     createdAt       datetime default now(),
-    constraint foreign key (boardId) references member (id) on delete cascade
+    constraint foreign key (boardId) references board (id) on delete cascade,
+    constraint foreign key (memberId) references member (id) on delete cascade
 );
+
 ```
