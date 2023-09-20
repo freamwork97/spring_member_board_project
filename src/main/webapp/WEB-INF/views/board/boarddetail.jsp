@@ -10,7 +10,7 @@
 <%@include file="../component/header.jsp" %>
 <%@include file="../component/nav.jsp" %>
 <div id="section" class="container">
-    <table class="table table-dark table-striped">
+    <table class="table table-secondary table-striped">
         <tr>
             <th>id</th>
             <td>${board.id}</td>
@@ -66,7 +66,7 @@
                 <h3>작성된 댓글이 없습니다.</h3>
             </c:when>
             <c:otherwise>
-                <table id="comment-list" class="table table-dark table-striped">
+                <table id="comment-list" class="table table-secondary table-striped">
                     <tr>
                         <th>작성자</th>
                         <th>내용</th>

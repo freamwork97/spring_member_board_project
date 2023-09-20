@@ -24,7 +24,7 @@
 
     <div class="container" id="list">
 
-        <table class="table table-dark table-striped table-hover text-center">
+        <table class="table table-secondary table-striped table-hover text-center">
             <tr>
                 <th>글번호</th>
                 <th>제목</th>
