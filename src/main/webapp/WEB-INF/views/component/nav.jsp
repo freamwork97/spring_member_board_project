@@ -4,7 +4,7 @@
         .menu {
             display: flex;
             align-items: center;
-            background-color: black;
+            background-color: #bfe2e9;
         }
 
         .menu-item {
@@ -23,7 +23,7 @@
             */
             display: block;
             padding: 10px;
-            color: white;
+            color: black;
             font-weight: bold;
 
         }
@@ -38,7 +38,7 @@
         }
     </style>
 </head>
-<div id="nav">
+<div id="nav" class="container">
     <ul class="menu">
         <li class="menu-item">
             <a href="/">index</a>
