@@ -6,9 +6,9 @@
 <body>
 <%@include file="component/header.jsp" %>
 <%@include file="component/nav.jsp" %>
-email : ${sessionScope.loginEmail } <br>
-profiledto : ${sessionScope.profile} <br>
-memberid : ${sessionScope.memberid}
+<%--email : ${sessionScope.loginEmail } <br>--%>
+<%--profiledto : ${sessionScope.profile} <br>--%>
+<%--memberid : ${sessionScope.memberid}--%>
 <%@include file="component/footer.jsp" %>
 </body>
 </html>

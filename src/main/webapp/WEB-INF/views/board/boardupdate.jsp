@@ -3,34 +3,40 @@
 <head>
     <title>Title</title>
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <style>
+        #section {
+            margin: auto;
+        }
+    </style>
 </head>
 <body>
 <%@include file="../component/header.jsp" %>
 <%@include file="../component/nav.jsp" %>
-<div id="section" class="container">
-    <h2>게시글 수정</h2>
-    <form action="/board/update" method="post" name="updateForm">
-        <input type="hidden" name="id" class="form-control" value="${board.id}"> <br>
-        <div class="mb-3">
-            <label class="form-label">제목</label>
-            <input type="text" name="boardTitle" class="form-control" value="${board.boardTitle}"
-                   placeholder="제목을 입력하세요"> <br>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">작성자</label>
-            <input type="text" name="boardWriter" class="form-control" value="${board.boardWriter}" readonly> <br>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">내용</label>
-            <textarea name="boardContents" class="form-control" cols="30" rows="10">${board.boardContents}</textarea>
-            <br>
-        </div>
-<%--        <div class="mb-3">--%>
-<%--            <label class="form-label">첨부파일</label>--%>
-<%--            <input type="file" class="form-control" id="boardFile" name="boardFile" multiple>--%>
-<%--        </div>--%>
-        <button type="submit" class="btn btn-primary">수정</button>
-    </form>
+<div class="card" id="section" style="width: 80rem;">
+    <div class="card-header">
+        게시글작성
+    </div>
+    <ul class="list-group list-group-flush">
+        <form action="/board/update" method="post" name="updateForm">
+            <input type="hidden" name="id" class="form-control" value="${board.id}">
+            <li class="list-group-item">
+                <input type="text" name="boardTitle" class="form-control" value="${board.boardTitle}"
+                       placeholder="제목을 입력하세요">
+            </li>
+            <li class="list-group-item">
+                <input type="text" name="boardWriter" class="form-control" value="${board.boardWriter}" readonly> <br>
+            </li>
+            <li class="list-group-item">
+                <textarea name="boardContents" class="form-control" cols="30"
+                          rows="10">${board.boardContents}</textarea>
+            </li>
+            <%--        <div class="mb-3">--%>
+            <%--            <label class="form-label">첨부파일</label>--%>
+            <%--            <input type="file" class="form-control" id="boardFile" name="boardFile" multiple>--%>
+            <%--        </div>--%>
+            <button type="submit" class="btn btn-primary">수정</button>
+        </form>
+    </ul>
 </div>
 <%@include file="../component/footer.jsp" %>
 </body>
