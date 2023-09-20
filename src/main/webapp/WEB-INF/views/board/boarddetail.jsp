@@ -9,7 +9,7 @@
 <body>
 <%@include file="../component/header.jsp" %>
 <%@include file="../component/nav.jsp" %>
-<div id="section">
+<div id="section" class="container">
     <table class="table table-dark table-striped">
         <tr>
             <th>id</th>
@@ -60,7 +60,7 @@
         <input type="text" id="comment-contents" placeholder="내용 입력">
         <button onclick="comment_write()">댓글작성</button>
     </div>
-    <div id="comment-list-area">
+    <div id="comment-list-area" >
         <c:choose>
             <c:when test="${commentList == null}">
                 <h3>작성된 댓글이 없습니다.</h3>
