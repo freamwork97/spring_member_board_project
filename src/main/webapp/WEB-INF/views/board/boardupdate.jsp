@@ -34,7 +34,9 @@
             <%--            <label class="form-label">첨부파일</label>--%>
             <%--            <input type="file" class="form-control" id="boardFile" name="boardFile" multiple>--%>
             <%--        </div>--%>
-            <button type="submit" class="btn btn-primary">수정</button>
+            <li class="list-group-item">
+                <button type="submit" class="btn btn-primary">수정</button>
+            </li>
         </form>
     </ul>
 </div>
