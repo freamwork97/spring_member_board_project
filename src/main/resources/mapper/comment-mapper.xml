@@ -4,8 +4,8 @@
 
 <mapper namespace="Comment">
     <insert id="save" parameterType="comment">
-        insert into comment_table(commentWriter, commentContents, boardId)
-        values (#{commentWriter}, #{commentContents}, #{boardId})
+        insert into comment_table(commentWriter, commentContents, boardId,memberId)
+        values (#{commentWriter}, #{commentContents}, #{boardId}, #{memberId})
     </insert>
     <select id="findAll" parameterType="Long" resultType="comment">
         select id, commentWriter, commentContents,

@@ -56,7 +56,7 @@
     </c:if>
 
     <div id="comment-write-area">
-        <input type="text" id="comment-writer" value="${member.memberEmail}" readonly>
+        <input type="text" id="comment-writer" value="${sessionScope.loginEmail}" readonly>
         <input type="text" id="comment-contents" placeholder="내용 입력">
         <button onclick="comment_write()">댓글작성</button>
     </div>
@@ -89,9 +89,10 @@
 </body>
 <script>
     const comment_write = () => {
-        const commentWriter = '${member.memberEmail}';
+        const commentWriter = document.getElementById("comment-writer").value;
         const commentContents = document.querySelector("#comment-contents").value;
         const boardId = '${board.id}';
+        const memberId = '${sessionScope.memberid}'
         const result = document.getElementById("comment-list-area");
         $.ajax({
             type: "post",
@@ -99,7 +100,8 @@
             data: {
                 commentWriter: commentWriter,
                 commentContents: commentContents,
-                boardId: boardId
+                boardId: boardId,
+                memberId: memberId
             },
             success: function (res) {
                 console.log("리턴값: ", res);

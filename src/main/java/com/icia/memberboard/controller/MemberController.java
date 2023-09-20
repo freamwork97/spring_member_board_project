@@ -49,8 +49,12 @@ public class MemberController {
         if (loginResult) {
             // 로그인 성공시 사용자의 이메일을 세션에 저장
             MemberProfileDTO profileDTO = memberService.findProfileByEmail(memberDTO.getMemberEmail());
-//            System.out.println("profileDTO" + profileDTO);
+            MemberDTO memberDTO1 = memberService.findByMemberEmail(memberDTO.getMemberEmail());
+            System.out.println("profileDTO : " + profileDTO);
+            System.out.println("memberDTO1 : "+memberDTO1);
             session.setAttribute("profile", profileDTO);
+            session.setAttribute("memberid",memberDTO1.getId());
+            System.out.println("getid : "+memberDTO1.getId());
             session.setAttribute("loginEmail", memberDTO.getMemberEmail());
             return "redirect:/";
         } else {
@@ -64,6 +68,7 @@ public class MemberController {
         // 해당 파라미터만 없앨 경우
         session.removeAttribute("loginEmail");
         session.removeAttribute("profile");
+        session.removeAttribute("memberid");
         // 세션 전체를 없앨 경우
 //        session.invalidate();
         return "redirect:/";

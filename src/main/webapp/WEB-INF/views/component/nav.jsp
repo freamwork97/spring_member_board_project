@@ -81,6 +81,7 @@
     const loginArea4 = document.getElementById("login-area4");
     const loginArea5 = document.getElementById("login-area5");
     const loginEmail = '${sessionScope.loginEmail}';
+
     console.log(loginEmail.length);
     if (loginEmail.length != 0) {
         // 로그인 했음
