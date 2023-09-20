@@ -17,7 +17,7 @@
 <%@include file="../component/nav.jsp" %>
 <div class="container">
     <div id="member-list">
-        <table class="table table-dark table-striped">
+        <table class="table table-secondary table-striped">
             <tr>
                 <td>id</td>
                 <td>email</td>

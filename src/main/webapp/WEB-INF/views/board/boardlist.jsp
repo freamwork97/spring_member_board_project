@@ -4,7 +4,7 @@
 <head>
     <title>Title</title>
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
-<%--    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">--%>
+    <%--    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">--%>
 </head>
 <body>
 <%@include file="../component/header.jsp" %>

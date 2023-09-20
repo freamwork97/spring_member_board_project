@@ -105,7 +105,7 @@
             },
             success: function (res) {
                 console.log("리턴값: ", res);
-                let output = "<table id=\"comment-list\" class='table table-dark table-striped' >\n" +
+                let output = "<table id=\"comment-list\" class='table table-secondary table-striped' >\n" +
                     "    <tr>\n" +
                     "        <th>작성자</th>\n" +
                     "        <th>내용</th>\n" +
